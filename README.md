@@ -20,4 +20,4 @@ will generate these files:
     BBQ.svg  
 
 
-Currnetly Supports EMF because MS Word is a little silly.  
+Currently Supports EMF because MS Word is a little silly.  
