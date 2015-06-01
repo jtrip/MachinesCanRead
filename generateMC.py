@@ -7,10 +7,9 @@ import private
 
 
 def svg(code_list, savepath):
-
     print('SVG')
     for code in code_list:
-        print('generating... ' + code + '.svg')
+        print('generating... ' + savepath + code + '.svg')
 
         try:
             output = barcode.Code39(code, add_checksum=False)
@@ -20,7 +19,6 @@ def svg(code_list, savepath):
 
 
 def emf(code_list, savepath):
-
     # create svg files to be converted by Cloud Convert REST API
     svg(code_list, savepath)
 
@@ -28,7 +26,7 @@ def emf(code_list, savepath):
     try:
         print('EMF')
         for code in code_list:
-            print('generating...' + code + '.emf')
+            print('generating...' + savepath + code + '.emf')
             request = requests.post(private.my_api_url,
                                     files={'file': open(savepath + code + '.svg', 'rb')})
             with open(savepath + code + '.emf', 'wb') as fd:
@@ -36,7 +34,6 @@ def emf(code_list, savepath):
                     fd.write(chunk)
     except:
         print('Error: exception in generating emf')
-
 
 
 def png(code_list, savepath):
@@ -53,13 +50,10 @@ def main():
     # list of strings to turn into barcodes
     code_list = []
 
-    # where to save the output, also should be 'working' folder
-    savepath = 'C:\Users\jtripl01\PycharmProjects\Code39\\'
-
     if len(argv) == 1:
         # default codes
         code_list = ['ABCDEF', 'qwe123', '33']
-        svg(code_list, savepath)
+        svg(code_list, private.savepath)
 
     elif len(argv) > 1:
         # skip script name and first argument which should be format
@@ -68,11 +62,11 @@ def main():
 
         # generate vector files according to selected file type
         if file_format == 'svg':
-            svg(code_list, savepath)
+            svg(code_list, private.savepath)
         elif file_format == 'emf':
-            emf(code_list, savepath)
+            emf(code_list, private.savepath)
         elif file_format == 'png':
-            png(code_list, savepath)
+            png(code_list, private.savepath)
 
 
 if __name__ == '__main__':
