@@ -1,6 +1,11 @@
 # Private info file (API URL w/ KEY)
 private.py
 
+# generated files
+*.svg
+*.emf
+*.png
+
 # PyCharm folder
 .idea/*
 
