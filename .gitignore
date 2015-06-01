@@ -1,3 +1,9 @@
+# Private info file (API URL w/ KEY
+private.py
+
+# PyCharm folder
+.idea/*
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
