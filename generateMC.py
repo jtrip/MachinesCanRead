@@ -12,7 +12,9 @@ def svg(code_list, savepath):
         print('generating... ' + savepath + code + '.svg')
 
         try:
+            # generate the svg data of the pattern
             output = barcode.Code39(code, add_checksum=False)
+            # save the data as a file
             filename = output.save(savepath + code)
         except:
             print('Error: exception in generating svg')
