@@ -52,7 +52,7 @@ def main():
 
     if len(argv) == 1:
         # default codes
-        code_list = ['ABCDEF', 'qwe123', '33']
+        code_list = private.default_codes
         svg(code_list, private.savepath)
 
     elif len(argv) > 1:
