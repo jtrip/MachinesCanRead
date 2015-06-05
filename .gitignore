@@ -2,9 +2,7 @@
 private.py
 
 # generated files
-*.svg
-*.emf
-*.png
+output/*
 
 # PyCharm folder
 .idea/*
